@@ -1,0 +1,44 @@
+.task {
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #39603d;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    animation: animate-in 1s ease-out forwards;
+}
+
+.title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #f1b24a;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.description {
+    white-space: pre-wrap;
+    font-size: 1.25rem;
+    margin: 0.25rem 0 0 0;
+    color: #f1b24a;
+    font-style: italic;
+}
+
+.openListBtn {
+    background-color: transparent;
+    color: #f1b24a;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+@keyframes animate-in {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
