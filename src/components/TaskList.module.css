@@ -1,0 +1,19 @@
+.wrapper {
+    background-color: #39603d;
+    padding: 1rem 2rem 1rem 1rem;
+    width: 20rem;
+}
+
+.addBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #39603d;
+    color: #f1b24a;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-weight: bold;
+}

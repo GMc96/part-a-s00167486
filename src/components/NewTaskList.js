@@ -1,22 +1,24 @@
 import { useState } from "react";
-import classes from "./NewTask.module.css";
+import classes from "./NewTaskList.module.css";
+import axios from "axios";
 
-function NewTask({ onCancel, onAddTask }) {
-  const [enteredDescription, setEnteredDescription] = useState("");
+function NewTaskList({ onCancel, onAddTask }) {
   const [enteredTitle, setEnteredTitle] = useState("");
-
-  function descriptionChangeHandler(event) {
-    setEnteredDescription(event.target.value);
-  }
 
   function titleChangeHandler(event) {
     setEnteredTitle(event.target.value);
   }
 
   function submitHandler(event) {
+    const cr8tbl = process.env.REACT_APP_CR8TBL;
+    axios.post(cr8tbl, {
+      name: enteredTitle
+    }).then((response) => {
+      console.log(response);
+    });
+
     event.preventDefault();
     const taskData = {
-      description: enteredDescription,
       title: enteredTitle,
     };
     onAddTask(taskData);
@@ -29,10 +31,6 @@ function NewTask({ onCancel, onAddTask }) {
         <label htmlFor="name">Title</label>
         <input type="text" id="name" required onChange={titleChangeHandler} />
       </p>
-      <p>
-        <label htmlFor="description">Description</label>
-        <textarea id="description" required rows={3} onChange={descriptionChangeHandler} />
-      </p>
       <p className={classes.actions}>
         <button type="button" onClick={onCancel}>
           Cancel
@@ -43,4 +41,4 @@ function NewTask({ onCancel, onAddTask }) {
   );
 }
 
-export default NewTask;
+export default NewTaskList;

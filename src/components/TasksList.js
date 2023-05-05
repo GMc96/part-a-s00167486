@@ -1,28 +1,27 @@
 import { useState } from "react";
-
 import Task from "./Task";
 import classes from "./TasksList.module.css";
-import NewTask from "./NewTask";
+import NewTaskList from "./NewTaskList";
 import Modal from "./Modal";
 
 function TasksList({ isPosting, onStopPosting }) {
-  const [tasks, setTasks] = useState([]);
+  const [taskLists, setTaskLists] = useState([]);
 
   function addTaskHandler(taskData) {
-    setTasks((existingTasks) => [taskData, ...existingTasks]);
+    setTaskLists((existingTaskLists) => [taskData, ...existingTaskLists]);
   }
 
   return (
     <>
       {isPosting ? (
         <Modal onClose={onStopPosting}>
-          <NewTask onCancel={onStopPosting} onAddTask={addTaskHandler} />
+          <NewTaskList onCancel={onStopPosting} onAddTask={addTaskHandler} />
         </Modal>
       ) : null}
 
       <ul className={classes.tasks}>
-        {tasks.map((task) => (
-          <Task key={task.description} title={task.title} description={task.description} />
+        {taskLists.map((taskList) => (
+          <Task key={taskList.title} title={taskList.title} />
         ))}
       </ul>
     </>

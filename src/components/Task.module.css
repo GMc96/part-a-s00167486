@@ -15,14 +15,6 @@
     text-transform: uppercase;
 }
 
-.description {
-    white-space: pre-wrap;
-    font-size: 1.25rem;
-    margin: 0.25rem 0 0 0;
-    color: #f1b24a;
-    font-style: italic;
-}
-
 .openListBtn {
     background-color: transparent;
     color: #f1b24a;
